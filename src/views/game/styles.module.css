@@ -1,0 +1,31 @@
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes popAndRotate {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.checked {
+  animation: pop 0.3s ease-in-out;
+}
+
+.putinActive {
+  animation: popAndRotate 1s ease-in-out;
+}
