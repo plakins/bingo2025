@@ -1,9 +1,18 @@
 import { useEffect, useRef } from 'react';
 
-import { RefreshCcw, X } from 'lucide-react';
+import { Info, RefreshCcw, X } from 'lucide-react';
 
 import putinSrc from '@/assets/putin.png';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
 import { useGame } from './use-game';
@@ -40,7 +49,7 @@ export const Game = () => {
     <main className="mt-[120px] flex w-full max-w-[500px] flex-1 flex-col gap-3 pt-4">
       <div className="flex flex-col items-center px-2">
         {!!win && (
-          <div className="pyro z-10 self-start">
+          <div className="pyro fixed left-0 right-0 top-[200px] z-10">
             <div className="before"></div>
             <div className="after"></div>
           </div>
@@ -123,11 +132,80 @@ export const Game = () => {
         </div>
       )}
       {!win && !active && (
-        <div className="flex flex-1 flex-col items-center justify-center gap-3">
+        <div className="flex flex-1 flex-col items-center gap-4">
           <Button variant="outline" onClick={handleRegenerate}>
             <RefreshCcw />
             <span>Другая карточка</span>
           </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="link" className="h-6">
+                <Info />
+                <span>Как играть</span>
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-h-dvh max-w-[600px] overflow-auto">
+              <DialogHeader>
+                <DialogTitle>Правила игры</DialogTitle>
+              </DialogHeader>
+              <blockquote className="mt-6 border-l-2 pl-6 italic">
+                <p>
+                  Как известно, Владимир Владимирович бесконечен, а вот слова в русском языке — нет.
+                  Из-за этого в своих речах ему время от времени ему приходится повторять одни и те
+                  же слова и словосочетания. Новогодняя речь не исключение.
+                </p>
+              </blockquote>
+              <p className="border-b pb-2">
+                Меня хватило только на написание этой подводки, а дальше мне стало лень. Поэтому я
+                попросил ChatGPT закончить описание и правила за меня. Передаю слово ему!
+              </p>
+              <h2 className="text-lg font-bold">BINGO 2025: Новогоднее Обращение</h2>
+              <p>
+                Добро пожаловать в захватывающую и веселую игру{' '}
+                <span className="font-semibold italic">BINGO 2025</span>, где новогоднее обращение
+                становится не просто тёплым поздравлением, но и увлекательной игрой!
+              </p>
+              <h3 className="text-lg font-semibold">Как играть:</h3>
+              <ul className="list-decimal pl-6">
+                <li className="pb-2">
+                  <span className="font-semibold">Подготовка:</span> Перед началом новогоднего
+                  обращения Владимира Путина выберите одну из карточек Бинго, на которых записаны
+                  фразы и слова, часто звучащие в его речах. Это могут быть как привычные «Дорогие
+                  друзья» и «Процветание», так и многозначительные «Единство» и «Скрепы».
+                </li>
+                <li className="pb-2">
+                  <span className="font-semibold">Начало игры:</span> Устройтесь поудобнее с
+                  телефоном в руках и карточкой Бинго на экране.
+                </li>
+                <li className="pb-2">
+                  <span className="font-semibold">Играем:</span> Во время трансляции внимательно
+                  слушайте обращение. Когда услышите фразу или слово с вашей карточки, нажмите на
+                  ячейку, чтобы отметить её.{' '}
+                  <span className="font-semibold">
+                    Засчитываются фразы в разных падежах, числах и с изменённым порядком слов, если
+                    смысл остается тот же. Важно играть честно: не натягивайте сову на глобус и не
+                    додумывайте ничего за нашего бессменного лидера.
+                  </span>
+                </li>
+                <li className="pb-2">
+                  <span className="font-semibold">Выигрываем:</span> Побеждает тот, кто первым
+                  заполнит всю горизонталь, вертикаль или диагональ! Когда это произойдёт, не
+                  забудьте крикнуть «БИНГО!» для полного праздничного эффекта.
+                </li>
+              </ul>
+              <p>
+                Играйте весело, отмечайте внимательно и пусть новогоднее обращение принесет радость
+                и удачу в новом году!
+              </p>
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button type="button" variant="outline">
+                    Все понятно!
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       )}
       {!!win && (
