@@ -1,6 +1,6 @@
 import { JSX, PropsWithChildren, useEffect, useState } from 'react';
 
-export function ClientOnly({ children }: PropsWithChildren<{ fallback?: JSX.Element }>) {
+export function ClientOnly({ children, fallback }: PropsWithChildren<{ fallback?: JSX.Element }>) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
@@ -8,7 +8,7 @@ export function ClientOnly({ children }: PropsWithChildren<{ fallback?: JSX.Elem
   }, []);
 
   if (!hasMounted) {
-    return null;
+    return fallback;
   }
 
   return children;
