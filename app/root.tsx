@@ -7,6 +7,11 @@ import {
   isRouteErrorResponse,
 } from 'react-router';
 
+import faviconApple from '@/assets/favicon/apple-touch-icon.png';
+import faviconPng from '@/assets/favicon/favicon-96x96.png';
+import faviconIco from '@/assets/favicon/favicon.ico';
+import faviconSvg from '@/assets/favicon/favicon.svg';
+
 import type { Route } from './+types/root';
 import stylesheet from './app.css?url';
 
@@ -24,22 +29,22 @@ export const links: Route.LinksFunction = () => [
   {
     rel: 'icon',
     type: 'image/png',
-    href: '/favicon-96x96.png',
+    href: faviconPng,
     sizes: '96x96',
   },
   {
     rel: 'icon',
     type: 'image/svg+xml',
-    href: '/favicon.svg',
+    href: faviconSvg,
   },
   {
     rel: 'icon',
     type: 'shortcut icon',
-    href: '/favicon.ico',
+    href: faviconIco,
   },
   {
     rel: 'apple-touch-icon',
-    href: '/apple-touch-icon.png',
+    href: faviconApple,
     sizes: '180x180',
   },
   { rel: 'stylesheet', href: stylesheet },
