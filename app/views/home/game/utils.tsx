@@ -1,6 +1,4 @@
-import { BingoElement } from '@/types';
-
-import { Win } from './types';
+import { BingoElement, Win } from '@/types/bingo';
 
 export function adjustFontSize(container: HTMLDivElement, textElement: HTMLDivElement) {
   let fontSize = 12;

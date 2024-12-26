@@ -1,7 +1,6 @@
 import { atomWithStorage } from 'jotai/utils';
 
-import { BingoElement } from '@/types';
-import { Win } from '@/views/game/types';
+import { BingoElement, Win } from '@/types/bingo';
 
 export const bingoItemsStore = atomWithStorage<BingoElement[]>('items', [], undefined, {
   getOnInit: true,

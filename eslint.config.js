@@ -21,6 +21,7 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': 0,
       'react-hooks/exhaustive-deps': 0,
+      'no-empty-pattern': 0,
     },
   }
 );
