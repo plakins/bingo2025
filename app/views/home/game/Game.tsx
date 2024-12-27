@@ -70,7 +70,7 @@ export const Game = () => {
               onClick={() => handleItemClick(i)}
               aria-disabled={!active}
               className={cn(
-                'relative flex aspect-square select-none flex-col items-center justify-center overflow-hidden px-1 py-3 duration-300',
+                'relative flex aspect-square select-none flex-col items-center justify-center overflow-hidden px-1 py-3 duration-300 ease-in-out',
                 {
                   'border-r': i % 5 !== 4,
                   'border-b': i < 20,
